@@ -46,7 +46,8 @@ namespace EncapsulationTest
                     _age = value;
                 } else
                 {
-                    Console.WriteLine($"invalid age { value }");
+                    //Console.WriteLine($"invalid age { value }");
+                    throw new ArgumentException($"invalid age { value }");
                 }
             }
         }

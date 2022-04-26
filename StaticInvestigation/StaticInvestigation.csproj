@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <StartupObject>EncapsulationTest.Program</StartupObject>
+    <StartupObject>StaticInvestigation.GarbageCollectionDemo</StartupObject>
   </PropertyGroup>
 
 </Project>
