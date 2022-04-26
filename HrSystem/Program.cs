@@ -9,6 +9,7 @@ namespace HrSystem
             Console.WriteLine("HR System");
 
             Person person = new Person("Alice", "Adams");
+
             person.Display();
 
             Employee employee = new Employee("Bob", "Brett", "E1235");
@@ -19,7 +20,6 @@ namespace HrSystem
 
             Manager manager = new Manager("Danielle", "Dunne", "E5432", 10);
             manager.Display();
-
 
             Console.WriteLine("==================================");
             Person[] people = new Person[]

@@ -6,8 +6,11 @@ namespace HrSystem
 {
     class Manager : Employee
     {
+
         public int HeadCount { get; set; }
 
+
+       
         public Manager(string firstName, 
                         string lastName, 
                         string employeeId, 
@@ -17,6 +20,8 @@ namespace HrSystem
             HeadCount = headCount;
             
         }
+        
+        
 
         public override void Display()
         {
@@ -24,5 +29,7 @@ namespace HrSystem
             base.Display();
             Console.WriteLine($"HeadCount: { HeadCount }");
         }
+
+
     }
 }
