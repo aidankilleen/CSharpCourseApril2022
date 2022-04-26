@@ -15,6 +15,7 @@ namespace HrSystem
             : base(firstName, lastName, employeeId)
         {
             HeadCount = headCount;
+            
         }
 
         public override void Display()

@@ -36,18 +36,37 @@ namespace HrSystem
             }
 
 
+            Console.WriteLine("===============================");
 
 
+            Trainer trainer = new Trainer("Eve", 
+                                            "Evans", 
+                                            "E11111");
+            trainer.Display();
+            trainer.Teach();
 
 
+            Tutor tutor = new Tutor("Fred",
+                                    "Fitzgerald",
+                                    "CPL");
 
+            tutor.Display();
+            tutor.Teach();
 
+            Console.WriteLine("==================================");
 
+            ITeacher[] faculty = new ITeacher[]
+            {
+                trainer,
+                tutor
+            };
 
-
-
-
-            
+            foreach (ITeacher teacher in faculty)
+            {
+                teacher.Teach();
+                Person pt = (Person)teacher;
+                pt.Display();
+            }
         }
     }   
 }
