@@ -25,10 +25,10 @@ namespace UserDaoTest
 
             while (reader.Read())
             {
-                int id = reader.GetInt32(0);
-                string name = reader.GetString(1);
-                string email = reader.GetString(2);
-                bool active = reader.GetInt32(3) == 1;
+                int id = reader.GetInt32(reader.GetOrdinal("id"));
+                string name = reader.GetString(reader.GetOrdinal("name"));
+                string email = reader.GetString(reader.GetOrdinal("email"));
+                bool active = reader.GetInt32(reader.GetOrdinal("active")) == 1;
 
                 User user = new User(id, name, email, active);
 
@@ -51,11 +51,14 @@ namespace UserDaoTest
 
             if (reader.Read())
             {
-                string name = reader.GetString(1);
-                string email = reader.GetString(2);
-                bool active = reader.GetInt32(3) == 1;
+                string name = reader.GetString(reader.GetOrdinal("name"));
+                string email = reader.GetString(reader.GetOrdinal("email"));
+                bool active = reader.GetInt32(reader.GetOrdinal("active")) == 1;
 
                 user = new User(id, name, email, active);
+            } else
+            {
+                throw new UserDaoException($"User { id } not found");
             }
 
             return user;
@@ -63,14 +66,17 @@ namespace UserDaoTest
 
         public User AddUser(User userToAdd)
         {
-            string sql = $@"INSERT INTO users 
-                            (name, email, active)
-                            VALUES(
-                                '{ userToAdd.Name }', 
-                                '{ userToAdd.Email }', 
-                                 { (userToAdd.Active ? 1 : 0)})";
+            string sql = $@"INSERT INTO users (name, email, active) 
+                            VALUES($name, $email, $active)";
+
+            Console.WriteLine(sql);
 
             SqliteCommand command = new SqliteCommand(sql, connection);
+
+            command.Parameters.AddWithValue("$name", userToAdd.Name);
+            command.Parameters.AddWithValue("$email", userToAdd.Email);
+            command.Parameters.AddWithValue("$active", userToAdd.Active ? 1 : 0);
+
             command.ExecuteNonQuery();
 
             // Get the id of the new record
@@ -92,11 +98,16 @@ namespace UserDaoTest
         public User UpdateUser(User userToUpdate)
         {
             string sql = $@"UPDATE users 
-                            SET name = '{ userToUpdate.Name }', 
-                                email = '{ userToUpdate.Email }', 
-                                active = { (userToUpdate.Active ? 1 : 0 )} 
-                            WHERE id = { userToUpdate.Id }";
+                            SET name = $name, 
+                                email = $email, 
+                                active = $active 
+                            WHERE id = $id";
             SqliteCommand command = new SqliteCommand(sql, connection);
+
+            command.Parameters.AddWithValue("$name", userToUpdate.Name);
+            command.Parameters.AddWithValue("$email", userToUpdate.Email);
+            command.Parameters.AddWithValue("$active", userToUpdate.Active ? 1 : 0);
+            command.Parameters.AddWithValue("$id", userToUpdate.Id);
 
             command.ExecuteNonQuery();
             return userToUpdate;
@@ -104,9 +115,15 @@ namespace UserDaoTest
 
         public void DeleteUser(int id)
         {
-            string sql = $"DELETE FROM users WHERE id = {id}";
+            string sql = $"DELETE FROM users WHERE id = { id }";
             SqliteCommand command = new SqliteCommand(sql, connection);
-            command.ExecuteNonQuery();
+            if (command.ExecuteNonQuery() == 0)
+            {
+                throw new UserDaoException($"User { id } not found");
+            }
+
+
+
         }
 
         public void Close()

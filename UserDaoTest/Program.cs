@@ -11,7 +11,24 @@ namespace UserDaoTest
            
             UserDao dao = new UserDao();
 
-            dao.DeleteUser(2);
+            try
+            {
+                User notFound = dao.GetUser(99999);
+                Console.WriteLine(notFound);
+
+            } catch(UserDaoException ex)
+            {
+                Console.WriteLine("User 99999 not found");
+            }
+
+            try
+            {
+                dao.DeleteUser(2);
+
+            } catch (UserDaoException)
+            {
+                // do absolutely nothing!!!
+            }
 
             User newUser = new User { 
                     Name = "New User", 
