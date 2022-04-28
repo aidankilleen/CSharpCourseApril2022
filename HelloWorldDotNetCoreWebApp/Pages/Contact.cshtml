@@ -1,0 +1,32 @@
+﻿@page
+@model HelloWorldDotNetCoreWebApp.Pages.ContactModel
+@using UserDaoLibrary;
+@{
+}
+
+@{ 
+
+    User user = new User(1, "Alice", "alice@gmail.com", true);
+}
+<div>
+    <h1>Contact Us</h1>
+
+    <table>
+        <tr>
+            <td>Id</td>
+            <td>@user.Id</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>@user.Name</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>@user.Email</td>
+        </tr>
+        <tr>
+            <td>Active</td>
+            <td>@(user.Active ? "Active" : "Inactive")</td>
+        </tr>
+    </table>
+</div>

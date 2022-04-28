@@ -5,11 +5,14 @@ using System.Text;
 
 namespace UserDaoLibrary
 {
-    class UserDao
+    public class UserDao
     {
         private SqliteConnection connection;
         string connectionString = "Data Source=C:/data/cso/csharp/usersdb.db";
 
+        /// <summary>
+        /// Create a User Dao and open the connection to the database
+        /// </summary>
         public UserDao()
         {
             connection = new SqliteConnection(connectionString);
