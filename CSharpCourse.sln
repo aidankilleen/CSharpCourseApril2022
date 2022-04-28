@@ -29,7 +29,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteDbHelloWorld", "Sqlit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserDaoTest", "UserDaoTest\UserDaoTest.csproj", "{D9A303C0-6F10-4070-A57F-5C9C0651B4BA}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "UserDaoLibrary", "UserDaoLibrary\UserDaoLibrary.shproj", "{E79C032C-79A2-4635-8069-EC72641512BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedProjectTest", "SharedProjectTest\SharedProjectTest.csproj", "{0B1D76B2-A20E-4008-B9BF-0770C4A81F60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsHelloWorld", "WinFormsHelloWorld\WinFormsHelloWorld.csproj", "{AE0E8529-8908-4ECD-9916-33B8413682C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfHelloWorld", "WpfHelloWorld\WpfHelloWorld.csproj", "{22FD4B15-3763-48A7-A6D7-D7126DB9C261}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		UserDaoLibrary\UserDaoLibrary.projitems*{0b1d76b2-a20e-4008-b9bf-0770c4a81f60}*SharedItemsImports = 5
+		UserDaoLibrary\UserDaoLibrary.projitems*{ae0e8529-8908-4ecd-9916-33b8413682c6}*SharedItemsImports = 5
+		UserDaoLibrary\UserDaoLibrary.projitems*{e79c032c-79a2-4635-8069-ec72641512bd}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -87,6 +100,18 @@ Global
 		{D9A303C0-6F10-4070-A57F-5C9C0651B4BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9A303C0-6F10-4070-A57F-5C9C0651B4BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9A303C0-6F10-4070-A57F-5C9C0651B4BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B1D76B2-A20E-4008-B9BF-0770C4A81F60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B1D76B2-A20E-4008-B9BF-0770C4A81F60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B1D76B2-A20E-4008-B9BF-0770C4A81F60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B1D76B2-A20E-4008-B9BF-0770C4A81F60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE0E8529-8908-4ECD-9916-33B8413682C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE0E8529-8908-4ECD-9916-33B8413682C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE0E8529-8908-4ECD-9916-33B8413682C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE0E8529-8908-4ECD-9916-33B8413682C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22FD4B15-3763-48A7-A6D7-D7126DB9C261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22FD4B15-3763-48A7-A6D7-D7126DB9C261}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22FD4B15-3763-48A7-A6D7-D7126DB9C261}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22FD4B15-3763-48A7-A6D7-D7126DB9C261}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
