@@ -47,10 +47,11 @@ namespace HelloWorldModelViewControllerWebApp.Controllers
         {
             User userToEdit = dao.GetUser(id);
             dao.Close();
-
+            ViewBag.Title = "Edit User";
             ViewBag.User = userToEdit;
+            ViewBag.Action = "/User/Edit";
 
-            return View("UserForm");
+            return View("UserForm", userToEdit);
         }
         [HttpPost]
         public IActionResult Edit(User editedUser)
@@ -59,5 +60,21 @@ namespace HelloWorldModelViewControllerWebApp.Controllers
             dao.Close();
             return Redirect("/User/Index");
         }
+        public IActionResult Add()
+        {
+            ViewBag.Title = "Add User";
+            ViewBag.User = new User { Id = 0, Name="", Email="", Active=false };
+            ViewBag.Action = "/User/Add";
+            return View("UserForm");
+        }
+        [HttpPost]
+        public IActionResult Add(User newUser)
+        {
+            dao.AddUser(newUser);
+            dao.Close();
+            return Redirect("/User/Index");
+
+        }
+
     }
 }

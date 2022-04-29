@@ -4,5 +4,37 @@
 @{
 }
 
-<h1>Contact Us</h1>
+<h1>Client Side Example</h1>
+
+<table class="table" id="tblUsers">
+
+</table>
+
+@section Scripts {
+
+    <script>
+
+
+        let users = $.getJSON("/Api/Users", function (users) {
+
+            //alert(JSON.stringify(users));
+
+            users.forEach(user => {
+                $('#tblUsers').append(`
+                    <tr>
+                        <td>${user.id}</td>
+                        <td>${user.name}</td>
+                        <td>${user.email}</td>
+                        <td>${user.active ? "Active" : "Inactive"}</td>
+                    </tr>
+                `)
+            })
+
+
+
+        });
+
+    </script>
+
+}
 
