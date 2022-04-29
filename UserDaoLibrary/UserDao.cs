@@ -5,6 +5,10 @@ using System.Text;
 
 namespace UserDaoLibrary
 {
+    /// <summary>
+    /// UserDao Class - used for reading and writing User objects
+    /// Please ensure you call the Close() method when finished
+    /// </summary>
     public class UserDao
     {
         private SqliteConnection connection;
@@ -40,7 +44,11 @@ namespace UserDaoLibrary
             return users;
         }
 
-
+        /// <summary>
+        /// Get the requested User from the database
+        /// </summary>
+        /// <param name="id">id of the requested user</param>
+        /// <returns>a User object</returns>
         public User GetUser(int id)
         {
             User user = null;

@@ -1,19 +1,14 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Text;
 using UserDaoLibrary;
 
 namespace UserDaoLibraryTest
 {
     [TestClass]
-    public class UnitTest1
+    class UserDaoTests
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-            UserDao dao = new UserDao();
-            Assert.IsNotNull(dao);
-            dao.Close();
-        }
-
         [TestMethod]
         public void TestCreateNewUser()
         {
@@ -25,5 +20,8 @@ namespace UserDaoLibraryTest
 
             dao.Close();
         }
+
+
+
     }
 }
