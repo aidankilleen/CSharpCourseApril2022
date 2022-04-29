@@ -13,10 +13,20 @@
     @foreach (var user in ViewBag.Users)
     {
     <tr>
-        <td>@user.Id</td>
+        <td><a href="/User/Detail/@user.Id">@user.Id</a></td>
         <td>@user.Name</td>
         <td>@user.Email</td>
         <td>@(user.Active ? "Active" : "Inactive")</td>
+        <td>
+            <a class="btn btn-danger" 
+               href="/User/ConfirmDelete/@user.Id">
+                Delete
+            </a>
+            <a class="btn btn-primary"
+               href="/User/Edit/@user.Id">
+                Edit
+            </a>
+        </td>
     </tr>
     }
 

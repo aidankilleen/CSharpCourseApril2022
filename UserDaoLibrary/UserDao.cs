@@ -10,9 +10,7 @@ namespace UserDaoLibrary
         private SqliteConnection connection;
         string connectionString = "Data Source=C:/data/cso/csharp/usersdb.db";
 
-        /// <summary>
-        /// Create a User Dao and open the connection to the database
-        /// </summary>
+
         public UserDao()
         {
             connection = new SqliteConnection(connectionString);
@@ -41,6 +39,7 @@ namespace UserDaoLibrary
             reader.Close();
             return users;
         }
+
 
         public User GetUser(int id)
         {
